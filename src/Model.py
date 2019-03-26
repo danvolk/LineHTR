@@ -15,7 +15,7 @@ class DecoderType:
 
 class Model:
     # Model Constants
-    batchSize = 50
+    batchSize = 10           # ZYU: original 50, changed to 10 for small (141) dataset
     imgSize = (800, 64)
     maxTextLen = 100
 
