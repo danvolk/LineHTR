@@ -1,5 +1,10 @@
+.ipynb_checkpoints
 data/words/
 data/words.txt
+data/train/
+data/test/
+data/line_data/
+data/lines.tgz
 src/__pycache__/
 model/checkpoint
 model/snapshot-*

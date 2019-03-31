@@ -1,0 +1,28 @@
+
+# Get an ubuntu 22.0 deep learning AMI on an AWS server with GPUs
+
+# Git clone the LineHTR repo
+git clone https://github.com/danvolk/LineHTR.git
+
+# Import the data into the data folder
+cd LineHTR/data
+
+# Be sure to register with IAM to get a username and password
+wget --user <USERNAME> --password <PASSWORD> http://www.fki.inf.unibe.ch/DBs/iamDB/data/lines/lines.tgz
+
+# Unzip the data
+mkdir lines
+tar -xvzf lines.tgz -C line_data/
+
+# Activate the Tensorflow Environment and add some libraries
+source activate tensorflow_p36
+pip install opencv
+pip install editdistance
+
+# Navigate to the src directory and use the following command to start tensorboard
+# Connect to the machine with port-forwarding on port 6006 in order to see the tensorboard
+tensorboard --logdir=./logs --host localhost --port=6006
+
+# Start the training by running the following command in the src directory
+python main.py --train
+
