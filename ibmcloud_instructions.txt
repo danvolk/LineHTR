@@ -2,11 +2,13 @@
 
 2. ibmcloud login
 
-3. ibmcloud sl vs create --datacenter=dal13 --hostname=p100 --domain=train.com --os=UBUNTU_16_64 --flavor AC1_16X120X25 --billing=hourly --san --disk=25 --disk=2000 --network 1000 --key=p305  (from week03 HW actually). it may not provision the first time if there are no GPU resources available.
+3. ibmcloud sl vs create --datacenter=dal13 --hostname=p100 --domain=train.com --os=UBUNTU_16_64 --flavor AC1_16X120X25 --billing=hourly --san --disk=25 --disk=2000 --network 1000 --key=p305
+(from week03 HW actually). it may not provision the first time if there are no
+GPU resources available.
 
 4. I did not disable password access to the VS instance intentionally. 
 
-4. (I went ahead and installed CUDA but it does not seem to be necessary, so
+4. I went ahead and installed CUDA but it does not seem to be necessary, so
 will skip that.
 
 5. Install Anaconda3 (and supporting libs):
