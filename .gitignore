@@ -11,3 +11,4 @@ model/snapshot-*
 *.so
 *.pyc
 src/logs/
+*.DS_Store
