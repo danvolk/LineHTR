@@ -15,8 +15,8 @@ class DecoderType:
 
 class Model:
     # Model Constants
-    batchSize = 25           # ZYU: original 50, changed to 10 for small (141) dataset
-    imgSize = (800, 64)
+    batchSize = 50           # ZYU: original 50, changed to 10 for small (141) dataset
+    imgSize = (1000, 80)
     maxTextLen = 100
 
     def __init__(self, charList, decoderType=DecoderType.BestPath, mustRestore=False):

@@ -1,5 +1,6 @@
 .ipynb_checkpoints
 nohup.out
+model/
 data/words/
 data/words.txt
 data/train/

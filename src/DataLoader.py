@@ -16,7 +16,7 @@ class FilePaths:
     fnWordCharList = '../model/wordCharList.txt'
     fnCorpus = '../data/corpus.txt'
     fnAccuracy = '../model/accuracy.txt'
-    fnTrain = '../data/train_deslanted/'
+    fnTrain = '../data/train/'
     fnInfer = '../data/test/'
 
 
