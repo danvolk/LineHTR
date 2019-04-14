@@ -1,6 +1,7 @@
 import argparse
 import os
 import sys
+import glob
 
 import cv2
 import editdistance
@@ -116,14 +117,19 @@ def validate(model, loader):
     return charErrorRate, addressAccuracy, wordErrorRate
 
 
-def infer(model, fnImg):
-    """ Recognize text in image provided by file path """
-    img = preprocessor(fnImg, model.imgSize, binary=True)
+def infer(model, paths):
+    """ Recognize text in image provided by file path """    
+    imgs = [preprocessor(paths[i], model.imgSize, binary=True) for i in range(len(paths))]
+    if len(imgs) >= Model.batchSize:
+        imgs = imgs[0:Model.batchSize]
+    else: # len(imgs) <= Model.batchSize
+        imgs = imgs + ([imgs[0]]*(Model.batchSize - len(imgs)))
     # Fill all batch elements with same input image
-    batch = Batch(None, [img] * Model.batchSize)
-    recognized = model.inferBatch(batch)  # recognize text
+    batch = Batch(["blah"]* Model.batchSize, imgs)
+    recognized = model.inferBatch(batch) # recognize text
     # All batch elements hold same result
-    print('Recognized:', '"' + recognized[0] + '"')
+    for i in range(min(len(paths), len(recognized))):
+        print('Recognized:', paths[i] , 'as "' + recognized[i] + '"')
 
 
 def main():
@@ -158,11 +164,9 @@ def main():
 
     # Infer text on test image
     else:
-        print(open(FilePaths.fnAccuracy).read())
-        model = Model(open(FilePaths.fnCharList).read(),
-                      decoderType, mustRestore=False)
-        infer(model, FilePaths.fnInfer)
-
+        model = Model(list(open(FilePaths.fnCharList).read()), decoderType, mustRestore=True)
+        paths = [f for f in glob.glob(FilePaths.fnInfer + "*.png")]
+        infer(model, paths)
 
 if __name__ == '__main__':
     main()
