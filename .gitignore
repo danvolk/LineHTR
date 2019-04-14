@@ -1,10 +1,14 @@
 .ipynb_checkpoints
+nohup.out
 data/words/
 data/words.txt
 data/train/
 data/test/
 data/line_data/
 data/lines.tgz
+data/deslanted_lines
+data/train_deslanted
+data/test_deslanted
 src/__pycache__/
 model/checkpoint
 model/snapshot-*
