@@ -16,7 +16,7 @@ class FilePaths:
     fnWordCharList = '../model/wordCharList.txt'
     fnCorpus = '../data/corpus.txt'
     fnAccuracy = '../model/accuracy.txt'
-    fnTrain = '../data/train/'
+    fnTrain = '../data/train_deslanted/'
     fnInfer = '../data/test/'
 
 
@@ -72,7 +72,7 @@ class DataLoader:
               len(self.validationSamples), "images.")
 
         # Number of randomly chosen samples per epoch for training
-        self.numTrainSamplesPerEpoch = 50      # ZYU NOTE: original is 5500
+        self.numTrainSamplesPerEpoch = 10000      # ZYU NOTE: original is 5500
 
         # Start with train set
         self.trainSet()
