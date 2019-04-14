@@ -17,7 +17,7 @@ class FilePaths:
     fnCorpus = '../data/corpus.txt'
     fnAccuracy = '../model/accuracy.txt'
     fnTrain = '../data/train_deslanted/'
-    fnInfer = '../data/test/a03-066-01.png'
+    fnInfer = '../data/test/'
 
 
 class Sample:
